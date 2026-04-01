@@ -82,16 +82,3 @@ app.get('/logout', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Illusion Shop running on port ${PORT}`));
-{
-  "name": "illusion-shop",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "axios": "^1.6.0",
-    "express-session": "^1.17.3"
-  }
-}
