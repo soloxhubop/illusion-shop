@@ -18,7 +18,11 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Login con Discord
+// Homepage
+app.get('/', (req, res) => {
+  if (req.session.user) return res.redirect('/shop');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 app.get('/login', (req, res) => {
   const url = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=code&scope=identify+email+guilds&prompt=consent`;
   res.redirect(url);
